@@ -40,3 +40,16 @@
         <div id="mensajeError" class="text-danger text-center mt-3"></div>
       </div>
 
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Verificar si el usuario está logueado antes de cargar la página
+    if (!localStorage.getItem("usuarioLogueado")) {
+      alert("Acceso denegado. Debes iniciar sesión primero.");
+      window.location.href = "/Fronted/HTML/LoginUsuario.html"; // ← nombre real del archivo de login
+    }
+  </script>
+  <script src="/Fronted/JS/VerUsuarios.js"></script>
+
+</body>
+</html>
+
