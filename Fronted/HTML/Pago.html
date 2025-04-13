@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pago</title>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="\JS\Pago.js"></script>
+</head>
+<body>
+  <a href="Home.html" class="btn btn-success btn-block">Regresar a Home</a>
+  <div class="container">
+    <div class="consulta mt-4">
+      <div class="row">
+        <div class="col-5">
+          <h3>Lista de Pagos</h3>
+        </div>
+      </div>
+      <div class="box-body">
+        <div class="table table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>N° Pago</th>
+                <th>N° de Pedido</th>
+                <th>Empresa</th>
+                <th>Fecha de Pago</th>
+                <th>Tipo de Pago</th>
+                <th>Monto de Pago</th>
+              </tr>
+            </thead>
+            <tbody id="DataPago"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="Formulario">
+      <div class="row">
+        <div class="col-12">
+          <h3>Agregar Pagos</h3>
+        </div>
+        <div class="col-12">
+          <form class="Pago" id="FormPago">
+            <label for="numero_de_pago">N° Pago</label>
+            <input type="text" id="numero_de_pago" class="form-control" placeholder="Ingrese Numero de Pago"/>
+
+            <label for="numero_de_pedido">N° de Pedido</label>
+            <input type="text" id="numero_de_pedido" class="form-control" placeholder="Ingrese Numero de Pedido" />
+
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" class="form-control" placeholder="Ingrese el nombre de la empresa" />
+
+            <label for="fecha_de_pago">Fecha de Pago</label>
+            <input type="date" id="fecha_de_pago" class="form-control" />
+
+            <label for="tipo_de_pago">Tipo de Pago</label>
+            <input type="text" id="tipo_de_pago" class="form-control" placeholder="Ingrese el tipo de Pago" />
+
+            <label for="monto_de_pago">Monto de Pago</label>
+            <input type="text" id="monto_de_pago" class="form-control" placeholder="Ingrese el monto" />
+            <hr />
+
+            <!-- 🔁 Zona de botones -->
+            <div class="form-group d-flex flex-wrap align-items-center mt-3">
+              <div id="btnprincipal" class="mr-2 mb-2">
+                <button type="button" class="btn btn-success" onclick="AgregarPago()">Ingresar Pago</button>
+              </div>
+
+              <input type="number" id="buscar_pago" class="form-control mr-2 mb-2"
+                placeholder="Buscar por N° de Pago" style="max-width: 160px;" />
+
+              <button type="button" class="btn btn-info mr-2 mb-2" onclick="BuscarPagoEnLista()">Buscar Pago</button>
+
+              <button type="button" class="btn btn-secondary mb-2" onclick="CargarPagosOrdenados()">Ver Todos</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 4 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

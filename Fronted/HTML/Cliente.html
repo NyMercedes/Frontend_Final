@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cliente</title>
+  <!-- Bootstrap 4 -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    crossorigin="anonymous"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/JS/Cliente.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="consulta mt-4">
+      <div class="row">
+        <div class="col-5">
+          <h3>Lista de Clientes</h3>
+        </div>
+      </div>
+      <div class="box-body">
+        <div class="table table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>N° Cliente</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fecha de Registro</th>
+                <th>Direccion Cliente</th>
+                <th>RTN</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody id="DataCliente"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="Formulario">
+      <div class="row">
+        <div class="col-12">
+          <h3>Agregar Clientes</h3>
+        </div>
+        <div class="col-12">
+          <form class="Cliente" id="FormCliente">
+            <label for="numero_cliente">N° Cliente</label>
+            <input type="text" id="numero_cliente" class="form-control" />
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" class="form-control" />
+
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" class="form-control" />
+
+            <label for="fecha_de_registro">Fecha de Registro</label>
+            <input type="date" id="fecha_de_registro" class="form-control" />
+
+            <label for="direccion_cliente">Direccion Cliente</label>
+            <input type="text" id="direccion_cliente" class="form-control" />
+
+            <label for="rtn">RTN</label>
+            <input type="text" id="rtn" class="form-control" />
+            
+            <label for="email">Email</label>
+            <input type="text" id="email" class="form-control" /><hr />
+
+            <!-- 🔁 Zona de botones -->
+            <div class="form-group d-flex flex-wrap align-items-center mt-3">
+              <div id="btnprincipal" class="mr-2 mb-2">
+                <button type="button" class="btn btn-success" onclick="AgregarCliente()">Ingresar Cliente</button>
+              </div>
+
+              <input type="number" id="buscar_cliente" class="form-control mr-2 mb-2"
+                placeholder="Buscar por N° Cliente" style="max-width: 160px;" />
+
+              <button type="button" class="btn btn-info mr-2 mb-2" onclick="BuscarClienteEnLista()">Buscar Cliente</button>
+
+              <button type="button" class="btn btn-secondary mb-2" onclick="CargarClientesOrdenados()">Ver Todos</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 4 JS opcional -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

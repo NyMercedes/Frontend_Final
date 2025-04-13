@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto</title>
+    <!--CSS de Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <!--Url de Jquery-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <!--Archivo JS-->
+     <script src="\JS\Producto.js"></script>
+</head>
+<body>
+    <a href="Home.html" class="btn btn-success btn-block">Regresar a Home</a>
+    <div class="container">
+        <div class="consulta mt-4">
+            <div class="row">
+                <div class="col-5">
+                    <h3> Lista de Productos</h3>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="table table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>N° Pedido</th>
+                                <th>Nombre Producto</th>
+                                <th>Precio Unitario</th>
+                                <th>Fecha Pedido</th>
+                                <th>Cantidad Articulo</th>
+                                <th>Monto Total</th>
+                                <th>Aplica Impuesto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="DataProducto"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="Formulario">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Agregar Productos</h3>
+                </div>
+                <div class="col-12">
+                    <form class="Producto" id="FormProducto">
+                        <label for="numero_pedido">N° Pedido</label>
+                        <input type="text" id="numero_pedido" class="form-control" placeholder="Ingrese el N° Pedido">                        
+
+                        <label for="nombre_articulo">Nombre Producto</label>
+                        <input type="text" id="nombre_articulo" class="form-control" placeholder="Ingrese el Nombre del Producto">
+
+                        <label for="precio_unitario">Precio Unitario</label>
+                        <input type="text" id="precio_unitario" class="form-control" placeholder="Ingrese el Precio Unitario">
+                        
+                        <label for="fecha_pedido">Fecha Pedido</label>
+                        <input type="date" id="fecha_pedido" class="form-control" placeholder="Ingrese la Fecha Pedido">
+                        
+                        <label for="cantidad_articulo">Cantidad Articulo</label>
+                        <input type="text" id="cantidad_articulo" class="form-control" placeholder="Ingrese la Cantidad Articulo">
+                        
+                        <label for="monto_total">Monto Total</label>
+                        <input type="text" id="monto_total" class="form-control" placeholder="Ingrese el Monto Total">
+                        
+                        <label for="aplica_impuesto">Aplica Impuesto</label>
+                        <input type="text" id="aplica_impuesto" class="form-control" placeholder="Ingrese el Aplica Impuesto">                        
+                        <hr>
+
+
+                        <!-- 🔁 Zona de botones -->
+                        <div class="form-group d-flex flex-wrap align-items-center mt-3">
+                            <div id="btnprincipal" class="mr-2 mb-2">
+                              <button type="button" class="btn btn-success" onclick="AgregarProducto()">Ingresar Producto</button>
+                            </div>
+              
+                            <input type="number" id="buscar_producto" class="form-control mr-2 mb-2"
+                              placeholder="Buscar por N° de Producto" style="max-width: 160px;" />
+              
+                            <button type="button" class="btn btn-info mr-2 mb-2" onclick="BuscarProductoEnLista()">Buscar Producto</button>
+              
+                            <button type="button" class="btn btn-secondary mb-2" onclick="CargarProductoOrdenados()">Ver Todos</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3-30856Kow5b7dwlZdYEdYEK039Gagi7vIsFjrRAoQmDKKtQSHUULZ9As5v4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
