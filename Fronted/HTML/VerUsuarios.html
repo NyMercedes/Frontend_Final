@@ -12,3 +12,31 @@
     <div class="bg-info text-white text-center p-3 mb-4">
         <h2>Listado de Usuarios Registrados</h2>
       </div>
+
+      <div class="container">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped" id="usuariosTable">
+            <thead class="thead-dark">
+              <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Estado</th>
+                <th>Último Ingreso</th>
+                <th>Password Expira</th>
+                <th>Días Caducidad</th>
+                <th>Rol</th>
+                <th>Intentos Incorrectos</th>
+                <th>Fecha Registro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Los datos se insertarán dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+        <div id="mensajeError" class="text-danger text-center mt-3"></div>
+      </div>
+
