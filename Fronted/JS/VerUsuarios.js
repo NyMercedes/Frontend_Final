@@ -4,14 +4,16 @@ $(document).ready(function () {
       method: "GET",
       dataType: "json",
       success: function (data) {
-        if (Array.isArray(data)) {
-          data.forEach(usuario => {
+        const usuarios = data.usuarios;
+  
+        if (Array.isArray(usuarios)) {
+          usuarios.forEach(usuario => {
             $("#usuariosTable tbody").append(`
               <tr>
                 <td>${usuario.codigo_usuario}</td>
                 <td>${usuario.nombre_usuario}</td>
                 <td>${usuario.apellido}</td>
-                <td>${usuario.password}</td>
+                <td>${usuario.password || '***'}</td>
                 <td>${usuario.email}</td>
                 <td>${usuario.estado}</td>
                 <td>${usuario.ultima_fecha_hora_ingreso}</td>
@@ -28,7 +30,7 @@ $(document).ready(function () {
         }
       },
       error: function (xhr, status, error) {
-        console.log(xhr.responseText); // Log para error detallado
+        console.log(xhr.responseText);
         $("#mensajeError").text("Error al conectar con el servidor.");
       }
     });
