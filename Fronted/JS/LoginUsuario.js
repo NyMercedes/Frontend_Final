@@ -1,31 +1,40 @@
-document.getElementById("loginForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
-  
-    const nombre_usuario = document.getElementById("nombre_usuario").value;
-    const password = document.getElementById("password").value;
-  
-    try {
-      const res = await fetch("http://localhost:5002/usuario/Login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre_usuario, password })
-      });
-  
-      const data = await res.json();
-      const responseEl = document.getElementById("response");
-  
-      responseEl.textContent = data.message;
-      responseEl.className = data.success ? "text-success" : "text-danger";
-  
-      if (data.success) {
-        setTimeout(() => {
-          window.location.href = "Home.html";
-        }, 1500);
+function LoginUsuario() {
+  var datosLogin = {
+      nombre_usuario: $('#nombre_usuario').val(),
+      password: $('#password').val()
+  };
+
+  var datosLoginJSON = JSON.stringify(datosLogin);
+
+  $.ajax({
+      url: "http://localhost:5002/usuario/Login",
+      type: "POST",
+      data: datosLoginJSON,
+      datatype: "JSON",
+      contentType: "application/json",
+      success: function (data) {
+          var responseEl = $('#response');
+          responseEl.text(data.message);
+          if (data.success) {
+              responseEl.removeClass().addClass("text-success");
+              setTimeout(function () {
+                  window.location.href = "Home.html";
+              }, 1500);
+          } else {
+              responseEl.removeClass().addClass("text-danger");
+          }
+      },
+      error: function (xhr, status, error) {
+          $('#response').text("Error de conexión con el servidor.").removeClass().addClass("text-danger");
+          console.error(xhr.responseText);
       }
-  
-    } catch (error) {
-      document.getElementById("response").textContent = "Error de conexión con el servidor.";
-      document.getElementById("response").className = "text-danger";
-    }
   });
-  
+}
+
+// Asignar el evento cuando el DOM esté listo
+$(document).ready(function () {
+  $('#loginForm').on('submit', function (e) {
+      e.preventDefault();
+      LoginUsuario();
+  });
+});
